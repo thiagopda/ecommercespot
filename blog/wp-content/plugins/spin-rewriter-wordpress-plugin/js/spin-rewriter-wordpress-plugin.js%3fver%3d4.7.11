@@ -1,0 +1,161 @@
+// make sure jQuery is available to this script
+if (typeof jQuery != 'undefined') {
+
+
+	jQuery(document).ready(function () {
+
+		// toggle advanced spinning settings (for Spin Rewriter) on click
+		jQuery("a.linkSpinRewriterAdvancedSettings").click(function (event) {
+			event.preventDefault();
+
+			// find the current state of advanced ENL Spinning Settings (shown or hidden)
+			if (jQuery("tr.trSpinRewriterAdvancedSettings").eq(0).is(":visible")) {
+				// hide settings
+				jQuery("a.linkSpinRewriterAdvancedSettings").html("Click here to show advanced ENL Spinning Settings...");
+
+				jQuery("tr.trSpinRewriterAdvancedSettings").find("td, input, textarea, label, p").slideUp("slow", function () {
+					jQuery("tr.trSpinRewriterAdvancedSettings").hide();
+				});
+			} else {
+				// show setings
+				jQuery("a.linkSpinRewriterAdvancedSettings").html("Click here to hide advanced ENL Spinning Settings...");
+
+				jQuery("tr.trSpinRewriterAdvancedSettings").find("td, input, textarea, label, p").hide();
+				jQuery("tr.trSpinRewriterAdvancedSettings").show();
+				jQuery("tr.trSpinRewriterAdvancedSettings").find("td, input, textarea, label, p").slideDown("slow");
+			}
+		});
+
+
+		// check or uncheck all posts so the user can prevent them from getting spun and re-published
+		jQuery("input#spinrewriter_skip_all_posts").change(function () {
+			if (jQuery(this).is(":checked")) {
+				jQuery("input.spinrewriter_skip_posts_class").each(function (index) {
+					jQuery(this).attr("checked", true);
+				});
+			} else {
+				jQuery("input.spinrewriter_skip_posts_class").each(function (index) {
+					jQuery(this).attr("checked", false);
+				});
+			}
+		});
+		jQuery("a.linkSpinRewriterCheckAll").click(function (event) {
+			event.preventDefault();
+			jQuery("input#spinrewriter_skip_all_posts").click();
+		});
+
+
+		// toggle the textarea for primary keywords (for Big Content Search)
+		if (jQuery("select#bigcontentsearch_add_posts_every_x_days").val() != "0") {
+			jQuery(".trBigContentSearchAdvancedSettings").show();
+		}
+		// listen for changes of the dropdown menu
+		jQuery("select#bigcontentsearch_add_posts_every_x_days").on("change", function () {
+			if (jQuery(this).val() != "0") {
+				jQuery(".trBigContentSearchAdvancedSettings").show();
+			} else {
+				jQuery(".trBigContentSearchAdvancedSettings").hide();
+			}
+		});
+
+
+		// delete the custom keyword if user picks one of the existing primary keywords
+		jQuery("input[name='bigcontentsearch_primary_keyword']").on("change", function () {
+			if (jQuery(this).val() != "PRIMARY_KEYWORD_CUSTOM") {
+				jQuery("input#bigcontentsearch_keyword").val("");
+			}
+		});
+		// select the custom keyword radio button if user enters a custom keyword
+		jQuery("input#bigcontentsearch_keyword").focus(function () {
+			if (jQuery("input[name='bigcontentsearch_primary_keyword']").size() > 0) {
+				jQuery("input#bigcontentsearch_primary_keyword_custom").attr("checked", "checked");
+			}
+		});
+
+
+		// add the custom "Spin Post with Spin Rewriter" button immediately after the WYSIWYG editor
+		if (jQuery("div#post-body-content").length) {
+			SpinRewriterSpinPostButtonLabel = "Spin this post with Spin Rewriter";
+
+			SpinRewriterSpinPostButtonConfirmLabel = "I understand. Spin this post with Spin Rewriter!";
+			SpinRewriterSpinPostButtonConfirmLabelAlternative = "Spin Rewriter is processing your text. Please wait...";
+
+			jQuery("div#post-body-content").append('<div style="padding:8px 0px;">' +
+			'<a href="#TB_inline?width=640&height=400&inlineId=spin-rewriter-spin-post-dialog" title="' + SpinRewriterSpinPostButtonLabel + '" id="spin-rewriter-spin-post-btn" class="button thickbox">' + SpinRewriterSpinPostButtonLabel + '</a>' +
+			'<div id="spin-rewriter-spin-post-dialog" class="postbox" style="display:none; margin:8px 0px; padding:10px;">' +
+			'<img src="' + SRWP_urls.PluginURL + 'img/spin-rewriter-logo-transparent.png" width="70" height="70" title="Spin Rewriter" alt="Spin Rewriter" style="float:right; display:inline; margin:10px 0px 8px 14px;" />' +
+			'<p style="margin-top:10px;">You can spin this post using Spin Rewriter\'s ENL Semantic Spinning technology. ' +
+			'In order for this feature to work, please make sure to enter your email address ' +
+			'and API key on the <a href="' + SRWP_urls.SupportPageURL + '" title="Spin Rewriter Plugin - Settings" target="_blank">Settings page</a> of the Spin Rewriter WordPress Plugin.' +
+			'</p><p>' +
+			'This post will be spun using the ENL spinning settings from your Spin Rewriter WordPress Plugin\'s <a href="' + SRWP_urls.SupportPageURL + '" title="Spin Rewriter Plugin - Settings" target="_blank">Settings page</a>, ' +
+			'including the Confidence Level, Protected Keywords, Automatic Protection, Change Sentences, Use Only Synonyms and other settings.' +
+			'</p><p style="margin-bottom:23px;">' +
+			'<span class="dashicons dashicons-info"></span> Once this post has been spun, it will replace the current contents of the post editor.' +
+			'</p><div id="spin-rewriter-spin-post-message" style="display:none; margin:0px 0px 28px 0px;"></div>' +
+			'<a href="#" id="spin-rewriter-spin-post-confirm-btn" class="button">' + SpinRewriterSpinPostButtonConfirmLabel + '</a> ' +
+			'<span id="spin-rewriter-spin-post-progress" style="display:none;">' +
+			'<img src="' + SRWP_urls.PluginURL + 'img/spinning-in-progress.gif" width="23" height="23" title="Spinning..." alt="Spinning..." style="margin:3px 8px 0px 8px;" /> ' +
+			'<span style="position:relative; bottom:6px;">Spinning can take up to 30 seconds...</span>' +
+			'</span>' +
+			'</div>' +
+			'</div>');
+
+			jQuery("a#spin-rewriter-spin-post-btn").click(function (event) {
+				event.preventDefault();
+				setTimeout(function () {
+					if (jQuery("div#TB_window").is(":visible") && jQuery("div#TB_ajaxContent").is(":visible")) {
+						jQuery("div#TB_window").css("width", "640px").css("height", "400px");
+						jQuery("div#TB_ajaxContent").css("width", "610px").css("height", "400px");
+					}
+				}, 1);
+				setTimeout(function () {
+					if (jQuery("div#TB_window").is(":visible") && jQuery("div#TB_ajaxContent").is(":visible")) {
+						jQuery("div#TB_window").css("width", "640px").css("height", "400px");
+						jQuery("div#TB_ajaxContent").css("width", "610px").css("height", "400px");
+					}
+				}, 400);
+			});
+
+			jQuery("a#spin-rewriter-spin-post-confirm-btn").click(function (event) {
+				event.preventDefault();
+				if (parseInt(jQuery("a#spin-rewriter-spin-post-confirm-btn").attr("data-spin-in-progress")) != 1) {
+					wysiwygContents = jQuery("textarea#content").val();
+					if (!jQuery("textarea#content").is(':visible') && tinymce.activeEditor) {
+						wysiwygContents = tinymce.activeEditor.getContent();
+					}
+					if (wysiwygContents.length) {
+						jQuery("a#spin-rewriter-spin-post-confirm-btn").attr("data-spin-in-progress", 1);
+						jQuery("a#spin-rewriter-spin-post-confirm-btn").html(SpinRewriterSpinPostButtonConfirmLabelAlternative);
+						jQuery("span#spin-rewriter-spin-post-progress").show();
+						jQuery.post(
+							ajaxurl,
+							{"action": "spin_rewriter_spin_post", "content_to_spin": wysiwygContents},
+							function (response) {
+								if (response.indexOf("operation did NOT succeed") != -1) {
+									jQuery("div#spin-rewriter-spin-post-message").html("<div class='error' style='color:#DD3D36;'><p><strong>ERROR:</strong> " + response + "</p></div>").show();
+								} else {
+									if (!jQuery("textarea#content").is(':visible') && tinymce.activeEditor) {
+										tinymce.activeEditor.setContent(response);
+									} else {
+										jQuery("textarea#content").val(response);
+									}
+									jQuery("div#spin-rewriter-spin-post-message").html("<div class='updated'><p><strong>SUCCESS:</strong> Your post has been spun and loaded into the post editor.<br /><a href='#' title='Close this window' id='spin-rewriter-spin-post-close'>Click here to return to the post editor...</a></p></div>").show();
+
+									jQuery("a#spin-rewriter-spin-post-close").unbind("click").click(function (event) {
+										event.preventDefault();
+										jQuery("a#TB_closeWindowButton").click();
+									});
+								}
+								jQuery("a#spin-rewriter-spin-post-confirm-btn").attr("data-spin-in-progress", 0);
+								jQuery("a#spin-rewriter-spin-post-confirm-btn").html(SpinRewriterSpinPostButtonConfirmLabel);
+								jQuery("span#spin-rewriter-spin-post-progress").hide();
+							});
+					} else {
+						jQuery("div#spin-rewriter-spin-post-message").html("<div class='error' style='color:#DD3D36;'><p><strong>ERROR:</strong> Please enter at least some text into the post editor.<br />Right now the post editor seems to be empty.</p></div>").show();
+					}
+				}
+			});
+		}
+	});
+}

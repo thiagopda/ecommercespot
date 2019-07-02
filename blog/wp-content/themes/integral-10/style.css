@@ -1,0 +1,400 @@
+/* 
+Theme Name: Integral
+Theme URI: http://wpthemespot.com/
+Description: <a href="http://wpthemespot.com/themes/integral/" title="Integral Theme">Integral</a> is a WP ThemeSpot Production.
+Version: 1.1
+Author: WP ThemeSpot
+Author URI: http://wpthemespot.com
+*/
+/*
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+*/
+
+/* Elements */
+@import url('https://fonts.googleapis.com/css?family=Dosis:300,400,700,800');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400');
+
+
+body {
+	margin: 20px 0;
+	font-size:10px;
+	font-size:small;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 0.8em;
+	color: #666;
+
+}
+
+h1 {
+text-align: center;
+}
+
+h2, h3, h4, h5, h6 {
+	color: #2582A4;
+	font-family:Arial, Verdana, Serif;
+}
+p 
+{
+	margin-bottom:0.3em;
+	line-height:1.6em;
+	margin-left: 8px;
+}
+img, a img 
+{
+	border:#2582A4 1px;
+}
+
+/* Cutomise CSS */
+
+/* Navigation bar*/
+div#top {width: 100%;margin-top: 1px;}
+
+div#header {
+    background: url(http://cdn.ecommercespot.com/img/background.png) no-repeat 0 40px;
+    height: auto;
+    min-width: 964px;
+    background-position: top;
+    min-height: 50px;
+	margin-top: 4%;
+}
+
+div#top > ul {
+    padding-left: 0px;
+    max-width: 684px;
+    margin: auto;
+}
+
+
+div#top > ul li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 0;
+    width: 88px;
+    height: 87px;
+    position: relative;
+    margin-left: -4px;
+    margin-top: -38px;
+}
+
+div#top2 {
+    width: 949px;
+    overflow: hidden;
+    height: 65px;
+    background: url(http://www.ecommercespot.com/img/bg1.gif);
+    margin-bottom: -10px;
+    margin-top: 4%;
+    margin-left: -1%;
+}
+#logoTop {
+    float: left;
+    display: block;
+    width: 370px;
+    height: 65px;
+    position: relative;
+}
+#logoTop span {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(http://www.ecommercespot.com/img/shopping-cart-review.gif) no-repeat 0 0;
+}
+li#but1 {
+    background: url(http://cdn.ecommercespot.com/img/m11.gif) no-repeat 0 0;
+}
+
+div#top > ul li a {display: block;width: 97px;height: 26px;text-align: center;padding-top: 62px;font-weight: bold;text-decoration: none;    color: #8A8A8A;}
+
+li#but2 {
+    background: url(http://cdn.ecommercespot.com/img/m2.gif);
+}
+
+li#but3 {
+    background: url(http://cdn.ecommercespot.com/img/m3.gif);
+	width: 97px !important;
+}
+
+li#but4 {
+    background: url(http://cdn.ecommercespot.com/img/m4.gif) no-repeat 0 0;
+    width: 98px !important;
+}
+
+li#but5 {
+    background: url(http://cdn.ecommercespot.com/img/m5.gif) no-repeat 0 0;
+    width: 98px !important;
+}
+
+li#but6 {
+    background: url(http://cdn.ecommercespot.com/img/m6.gif) no-repeat 0 0;
+    width: 96px !important;
+}
+
+li#but7 {
+    background: url(http://cdn.ecommercespot.com/img/m77.gif) no-repeat 0 0;
+    width: 98px !important;
+    padding-right: 10px;
+}
+
+#container {
+border: 12px solid #B22222;
+border-radius: 10px;
+margin-top: 15px;
+margin-bottom: 15px;
+}
+#content {
+    background: url(http://www.ecommercespot.com/img/ds-grey.gif) repeat-x scroll 0 22px #FFFFFF;
+    border: 1px solid #CACACA;
+}
+
+
+.top-searchbar {
+    width: 960px;
+    overflow: hidden;
+    height: 65px;
+    background: url(http://www.ecommercespot.com/img/bg1.gif) repeat-x 0 0;
+    margin-bottom: -2px;
+    margin: auto;
+}
+
+.top-searchbar a {
+    float: left;
+    display: block;
+    width: 370px;
+    height: 65px;
+    position: relative;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    color: transparent;
+}
+
+.top-searchbar form {
+    float: right;
+    margin: 18px 0 0 0;
+    padding-right: 50px;
+}
+#bot {
+    background: url(http://cdn.ecommercespot.com/img/footer2.gif) repeat-x 0 0;
+    padding: 30px 0 15px 0;
+    text-align: center;
+    width: 960px;
+    align-self: center;
+    margin: auto;
+}
+#bot p {
+	margin: 5px 0;
+}
+a:link, a:visited {
+    color: #5F98BD;
+}
+#content {
+    background: url(http://www.ecommercespot.com/img/ds-grey.gif) repeat-x scroll 0 22px #FFFFFF;
+    border: 2px solid #CACACA;
+}
+.cols {
+    width: 100%;
+    overflow: hidden;
+    margin: 0 0 3px 0;
+}
+.headerstandard h2 {
+    color: #FFFFFF;
+    height: 22px;
+    line-height: 22px;
+    font-size: 110%;
+    padding: 0 0 0 23px;
+    background: url(http://www.ecommercespot.com/img/gr-br2.gif) repeat-x 0 0;
+    margin: auto;
+}
+h2 {
+    display: block;
+    font-size: 1.5em;
+    -webkit-margin-before: 0.83em;
+    -webkit-margin-after: 0.83em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+}
+.cols {
+    width: 960px;
+    margin: auto;
+}
+
+
+
+
+/*post grid design home page*/
+
+.col-left.width30 img {
+    width: 1;
+    width: 97%;
+    height: 200px;
+    margin-left: 7px;
+}
+
+.post-grid {
+    WIDTH: 50%;
+    float: left;
+    height: 320px;
+}
+
+.col-right.width70 {
+    width: 98%;
+    margin: 10px;
+}
+/*.post-grid:hover {
+    background-color: black;
+}*/
+
+.col-left.width30:hover img {
+  
+    transform: scale(1.02);
+}
+
+
+
+/*single.php*/
+div#main {
+    width: 930px;
+    margin: auto;
+    border: 2px solid #CACACA;
+    padding: 15px;
+}
+h2.single-title {
+    font-family: "Dosis", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -webkit-font-kerning: normal;
+    font-kerning: normal;
+    -webkit-font-variant-ligatures: common-ligatures, contextual, discretionary-ligatures;
+    font-variant-ligatures: common-ligatures, contextual, discretionary-ligatures;
+    -webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig';
+    font-feature-settings: 'kern', 'liga', 'clig', 'calt', 'dlig';
+    display: block;
+    margin-bottom: 0.2381em;
+    color: #30373b;
+    font-size: 3.625em;
+    line-height: 1.19048em;
+    font-weight: 800;
+}
+span.cat a:hover {
+    color: #9dc449;
+    transition-duration: 0.3s;
+}
+span.cat a {
+    text-decoration: none;
+    padding-bottom: 0.375em;
+    -webkit-transition: background-position 150ms ease-in-out;
+    transition: background-position 150ms ease-in-out;
+    color: #619945;
+    font-size: 16px;
+    border-bottom: 1px dashed;
+}
+span.edit-post-btn a {
+    color: white;
+    background: #1b77d6;
+    text-decoration: none;
+    padding: 7px;
+    border-radius: 5px;
+}
+
+a.page-numbers {
+    color: #767676;
+    font-size: 16px;
+    text-decoration: none;
+    padding: 15px;
+    display: inline-block;
+}
+
+span.page-numbers.current{
+color: #767676;
+    font-size: 16px;
+    text-decoration: none;
+    padding: 15px;
+    display: inline-block;
+
+}
+.nav-links {
+    text-align: center;
+}
+.next {
+    float: right;
+    margin-right: 30px;
+}
+.single-post-view p > img {
+    max-width: 100%;
+    height: auto;
+}
+
+h2.screen-reader-text {
+    display: none;
+}
+
+span.page-numbers.current {
+    background-color: #d5d9dc;
+    padding: 10px;
+}
+.container-wp-home {
+    display: table;
+    width: 100%;
+}
+/* sidebar styling */
+.post-widget-scroller::-webkit-scrollbar {
+    width: 8px;
+}
+ 
+/* Track */
+.post-widget-scroller::-webkit-scrollbar-track {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background-color: #e6e6e6;
+}
+ 
+/* Handle */
+.post-widget-scroller::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #868686; 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+.post-widget-scroller::-webkit-scrollbar-thumb:window-inactive {
+  background: #7fad8f; 
+}
+
+.post-widget-scroller {
+    max-height: 800px;
+    overflow-y: auto;
+}
+.post-widget-single img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 30px;
+}
+
+.post-widget-single h2 {font-family: 'open sans', sans-serif;font-weight: 300;color: #9dc449;font-size: 18px;}
+
+.post-widget-single p {font-family: 'open sans', sans-serif;margin-bottom: 30px;}
+
+.post-widget-single {
+    padding: 20px 15px;
+    text-align: center;
+}
+
+.post-widget-single a {
+    text-decoration: none;
+}
+
+.post-widget-single a.btn-read-more {
+    display: inline-block;
+    padding: 7px 20px;
+    margin-bottom: 20px;
+    background: #7fad2f;
+    color: white;
+    border: 1px solid #628823;
+    border-radius: 4px;
+    font-family: 'open sans', sans-serif;
+}
+
+.post-widget-single a.btn-read-more:hover {
+    background: #5e9007;
+    transition-duration: 0.2s;
+}
